@@ -42,7 +42,7 @@ Add barcode-kaiteki as dependency:
 
 ```gradle
 dependencies {
-    implementation 'com.kroegerama:barcode-kaiteki:<version>'
+    implementation 'com.github.er-cormant:barcode-kaiteki:2.0.0'
 }
 ```
 
