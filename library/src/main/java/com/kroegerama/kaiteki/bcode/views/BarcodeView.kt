@@ -17,7 +17,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.DecodeHintType
 import com.google.zxing.MultiFormatReader
-import com.google.zxing.Result
+import com.kroegerama.kaiteki.bcode.Result
 import com.kroegerama.kaiteki.bcode.*
 import com.kroegerama.kaiteki.bcode.R
 import kotlin.math.max

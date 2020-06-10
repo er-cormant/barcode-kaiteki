@@ -9,11 +9,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.os.postDelayed
 import androidx.lifecycle.LifecycleOwner
 import com.google.zxing.BarcodeFormat
-import com.google.zxing.Result
 import com.kroegerama.kaiteki.bcode.BarcodeResultListener
 import com.kroegerama.kaiteki.bcode.R
 import com.kroegerama.kaiteki.bcode.hasCameraPermission
 import com.kroegerama.kaiteki.bcode.views.BarcodeView
+import com.kroegerama.kaiteki.bcode.Result
 
 
 fun Context.showBarcodeAlertDialog(

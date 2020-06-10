@@ -12,7 +12,7 @@ import androidx.core.os.postDelayed
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.google.zxing.BarcodeFormat
-import com.google.zxing.Result
+import com.kroegerama.kaiteki.bcode.Result
 import com.kroegerama.kaiteki.bcode.*
 import kotlinx.android.synthetic.main.dlg_barcode.*
 

@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import androidx.annotation.ColorInt
-import com.google.zxing.Result
+import com.kroegerama.kaiteki.bcode.Result
 import com.kroegerama.kaiteki.bcode.BuildConfig
 import com.kroegerama.kaiteki.bcode.Style
 import com.kroegerama.kaiteki.bcode.handleArguments

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.google.zxing.BarcodeFormat
-import com.google.zxing.Result
+import com.kroegerama.kaiteki.bcode.Result
 import com.kroegerama.kaiteki.bcode.*
 import kotlinx.android.synthetic.main.dlg_barcode.*
 

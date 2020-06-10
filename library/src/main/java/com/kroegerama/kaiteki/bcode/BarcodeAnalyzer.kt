@@ -7,7 +7,6 @@ import androidx.camera.core.ImageProxy
 import com.google.zxing.BinaryBitmap
 import com.google.zxing.MultiFormatReader
 import com.google.zxing.PlanarYUVLuminanceSource
-import com.google.zxing.Result
 import com.google.zxing.common.HybridBinarizer
 
 internal interface ResultListener {
@@ -50,7 +49,7 @@ internal class BarcodeAnalyzer(
 
         try {
             val result = reader.decodeWithState(bitmap)
-            listener.onResult(result, width, height, rotationDegrees)
+            listener.onResult(Result(result), width, height, rotationDegrees)
         } catch (e: Exception) {
             listener.onNoResult()
         }

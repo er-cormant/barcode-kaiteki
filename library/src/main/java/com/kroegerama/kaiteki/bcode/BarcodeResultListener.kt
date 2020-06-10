@@ -1,7 +1,5 @@
 package com.kroegerama.kaiteki.bcode
 
-import com.google.zxing.Result
-
 interface BarcodeResultListener {
 
     /**

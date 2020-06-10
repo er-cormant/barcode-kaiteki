@@ -3,9 +3,9 @@ package com.kroegerama.bcode
 import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import com.google.zxing.BarcodeFormat
-import com.google.zxing.Result
 import com.kroegerama.kaiteki.baseui.BaseFragment
 import com.kroegerama.kaiteki.bcode.BarcodeResultListener
+import com.kroegerama.kaiteki.bcode.Result
 import com.kroegerama.kaiteki.bcode.ui.BarcodeBottomSheet
 import com.kroegerama.kaiteki.bcode.ui.BarcodeDialog
 import com.kroegerama.kaiteki.bcode.ui.showBarcodeAlertDialog

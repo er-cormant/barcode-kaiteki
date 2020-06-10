@@ -11,9 +11,9 @@ import androidx.core.os.postDelayed
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.zxing.BarcodeFormat
-import com.google.zxing.Result
 import com.kroegerama.kaiteki.bcode.*
 import kotlinx.android.synthetic.main.dlg_barcode.*
+import com.kroegerama.kaiteki.bcode.Result
 
 class BarcodeBottomSheet : BottomSheetDialogFragment(), BarcodeResultListener {
 
