@@ -10,7 +10,7 @@ class Result(
     val barcodeFormat: String,
     val resultPoints: List<ResultPoint>
 ) {
-    constructor(zxingResult: Result) : this(
+    internal constructor(zxingResult: Result) : this(
         zxingResult.text,
         zxingResult.barcodeFormat.name,
         zxingResult.resultPoints.map { ResultPoint(it) }

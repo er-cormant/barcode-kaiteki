@@ -12,15 +12,10 @@ import androidx.core.os.postDelayed
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.google.zxing.BarcodeFormat
-import com.kroegerama.kaiteki.bcode.Result
 import com.kroegerama.kaiteki.bcode.*
 import kotlinx.android.synthetic.main.dlg_barcode.*
 
 open class BarcodeDialog : DialogFragment(), BarcodeResultListener {
-
-    private val formats: List<BarcodeFormat>? by lazy {
-        arguments?.getSerializable(KEY_FORMATS) as List<BarcodeFormat>
-    }
 
     private val barcodeInverted by lazy {
         arguments?.getBoolean(KEY_INVERTED, false) ?: false
@@ -39,7 +34,6 @@ open class BarcodeDialog : DialogFragment(), BarcodeResultListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        formats?.let(bcode::setFormats)
         bcode.setBarcodeInverted(barcodeInverted)
         bcode.setBarcodeResultListener(this)
 
@@ -105,12 +99,11 @@ open class BarcodeDialog : DialogFragment(), BarcodeResultListener {
 
         fun show(
             fm: FragmentManager,
-            formats: List<BarcodeFormat> = listOf(BarcodeFormat.QR_CODE),
             barcodeInverted: Boolean = false,
             tag: String? = null
         ) = BarcodeDialog().apply {
             arguments = bundleOf(
-                KEY_FORMATS to formats,
+                KEY_FORMATS to BarcodeFormat.values().toList(),
                 KEY_INVERTED to barcodeInverted
             )
 

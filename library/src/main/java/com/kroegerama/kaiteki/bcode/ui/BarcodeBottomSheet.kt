@@ -13,13 +13,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.zxing.BarcodeFormat
 import com.kroegerama.kaiteki.bcode.*
 import kotlinx.android.synthetic.main.dlg_barcode.*
-import com.kroegerama.kaiteki.bcode.Result
 
 class BarcodeBottomSheet : BottomSheetDialogFragment(), BarcodeResultListener {
-
-    private val formats: List<BarcodeFormat>? by lazy {
-        arguments?.getSerializable(KEY_FORMATS) as List<BarcodeFormat>
-    }
 
     private val barcodeInverted by lazy {
         arguments?.getBoolean(KEY_INVERTED, false) ?: false
@@ -33,7 +28,6 @@ class BarcodeBottomSheet : BottomSheetDialogFragment(), BarcodeResultListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        formats?.let(bcode::setFormats)
         bcode.setBarcodeInverted(barcodeInverted)
         bcode.setBarcodeResultListener(this)
 
@@ -94,12 +88,11 @@ class BarcodeBottomSheet : BottomSheetDialogFragment(), BarcodeResultListener {
 
         fun show(
             fm: FragmentManager,
-            formats: List<BarcodeFormat> = listOf(BarcodeFormat.QR_CODE),
             barcodeInverted: Boolean = false,
             tag: String? = null
         ) = BarcodeBottomSheet().apply {
             arguments = bundleOf(
-                KEY_FORMATS to formats,
+                KEY_FORMATS to BarcodeFormat.values().toList(),
                 KEY_INVERTED to barcodeInverted
             )
 

@@ -11,17 +11,17 @@ import androidx.lifecycle.LifecycleOwner
 import com.google.zxing.BarcodeFormat
 import com.kroegerama.kaiteki.bcode.BarcodeResultListener
 import com.kroegerama.kaiteki.bcode.R
+import com.kroegerama.kaiteki.bcode.Result
 import com.kroegerama.kaiteki.bcode.hasCameraPermission
 import com.kroegerama.kaiteki.bcode.views.BarcodeView
-import com.kroegerama.kaiteki.bcode.Result
 
 
 fun Context.showBarcodeAlertDialog(
     owner: LifecycleOwner,
     listener: BarcodeResultListener,
-    formats: List<BarcodeFormat> = listOf(BarcodeFormat.QR_CODE),
     barcodeInverted: Boolean = false
 ) {
+
     if (!hasCameraPermission) {
         Log.w("BarcodeAlertDialog", "Camera permission required")
         Toast.makeText(this, "Camera permission required", Toast.LENGTH_LONG).show()
@@ -43,7 +43,6 @@ fun Context.showBarcodeAlertDialog(
         }
         .show()
 
-    bcode.setFormats(formats)
     bcode.setBarcodeInverted(barcodeInverted)
     bcode.setBarcodeResultListener(object : BarcodeResultListener {
         override fun onBarcodeResult(result: Result): Boolean {

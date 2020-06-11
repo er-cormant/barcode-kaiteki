@@ -13,10 +13,6 @@ import kotlinx.android.synthetic.main.dlg_barcode.*
 
 class BarcodeFragment : Fragment(), BarcodeResultListener {
 
-    private val formats: List<BarcodeFormat>? by lazy {
-        arguments?.getSerializable(KEY_FORMATS) as List<BarcodeFormat>
-    }
-
     private val barcodeInverted by lazy {
         arguments?.getBoolean(KEY_INVERTED, false) ?: false
     }
@@ -27,7 +23,6 @@ class BarcodeFragment : Fragment(), BarcodeResultListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        formats?.let(bcode::setFormats)
         bcode.setBarcodeInverted(barcodeInverted)
         bcode.setBarcodeResultListener(this)
 

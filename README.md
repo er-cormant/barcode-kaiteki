@@ -73,14 +73,12 @@ Then it is as easy as showing one of the provided dialogs.
 //show a Barcode FragmentDialog (with swipe to dismiss)
 BarcodeDialog.show(
     childFragmentManager,
-    formats = listOf(BarcodeFormat.QR_CODE),
     barcodeInverted = false
 )
 
 //show a Barcode BottomSheet
 BarcodeBottomSheet.show(
     childFragmentManager,
-    formats = listOf(BarcodeFormat.QR_CODE),
     barcodeInverted = false
 )
 
@@ -88,20 +86,17 @@ BarcodeBottomSheet.show(
 showBarcodeAlertDialog(
     owner = this,
     listener = this,
-    formats = listOf(BarcodeFormat.QR_CODE),
     barcodeInverted = false
 )
 //or from a Fragment
 requireContext().showBarcodeAlertDialog(
     owner = this,
     listener = this,
-    formats = listOf(BarcodeFormat.QR_CODE),
     barcodeInverted = false
 )
 
 //show a Barcode Fragment
 val barcodeFragment = BarcodeFragment.makeInstance(
-    formats = listOf(BarcodeFormat.QR_CODE),
     barcodeInverted = false
 )
 supportFragmentManager.beginTransaction()
@@ -127,7 +122,6 @@ Then add in your *onCreate/onViewCreated*: ```bcode.bindToLifecycle(this)``` and
 
 ```kotlin
 override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    bcode.setFormats(listOf(BarcodeFormat.QR_CODE,  BarcodeFormat.AZTEC))
     bcode.setBarcodeResultListener(this)
     bcode.bindToLifecycle(this)
 }

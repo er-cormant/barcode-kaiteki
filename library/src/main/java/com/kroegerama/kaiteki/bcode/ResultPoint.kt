@@ -9,7 +9,7 @@ class ResultPoint(
     val x: Float,
     val y: Float
 ) {
-    constructor(zxingResultPoint: ResultPoint): this(
+    internal constructor(zxingResultPoint: ResultPoint) : this(
         zxingResultPoint.x,
         zxingResultPoint.y
     )

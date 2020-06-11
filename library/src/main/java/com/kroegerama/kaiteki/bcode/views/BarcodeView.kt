@@ -17,7 +17,6 @@ import androidx.lifecycle.LifecycleOwner
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.DecodeHintType
 import com.google.zxing.MultiFormatReader
-import com.kroegerama.kaiteki.bcode.Result
 import com.kroegerama.kaiteki.bcode.*
 import com.kroegerama.kaiteki.bcode.R
 import kotlin.math.max
@@ -33,7 +32,11 @@ class BarcodeView @JvmOverloads constructor(
 
     private var listener: BarcodeResultListener? = null
 
-    private val barcodeReader by lazy { MultiFormatReader() }
+    private val barcodeReader by lazy {
+        MultiFormatReader().apply {
+            setHints(mapOf(DecodeHintType.POSSIBLE_FORMATS to BarcodeFormat.values().toList()))
+        }
+    }
 
     private val analyzer by lazy { BarcodeAnalyzer(this, barcodeReader) }
 
@@ -97,12 +100,6 @@ class BarcodeView @JvmOverloads constructor(
         listener = null
         CameraX.unbindAll()
     }
-
-    fun setFormats(formats: List<BarcodeFormat>) = barcodeReader.setHints(
-        mapOf(
-            DecodeHintType.POSSIBLE_FORMATS to formats
-        )
-    )
 
     private fun startPreview(owner: LifecycleOwner) {
         val metrics = DisplayMetrics().also { textureView.display.getRealMetrics(it) }

@@ -2,7 +2,6 @@ package com.kroegerama.bcode
 
 import android.util.Log
 import com.google.android.material.snackbar.Snackbar
-import com.google.zxing.BarcodeFormat
 import com.kroegerama.kaiteki.baseui.BaseFragment
 import com.kroegerama.kaiteki.bcode.BarcodeResultListener
 import com.kroegerama.kaiteki.bcode.Result
@@ -20,14 +19,12 @@ class FragDialogExamples : BaseFragment(
         btnDialogFragment.setOnClickListener {
             BarcodeDialog.show(
                 childFragmentManager,
-                formats = listOf(BarcodeFormat.QR_CODE),
                 barcodeInverted = cbInverted.isChecked
             )
         }
         btnBottomSheet.setOnClickListener {
             BarcodeBottomSheet.show(
                 childFragmentManager,
-                formats = listOf(BarcodeFormat.QR_CODE),
                 barcodeInverted = cbInverted.isChecked
             )
         }
@@ -35,7 +32,6 @@ class FragDialogExamples : BaseFragment(
             requireContext().showBarcodeAlertDialog(
                 owner = this,
                 listener = this,
-                formats = listOf(BarcodeFormat.QR_CODE),
                 barcodeInverted = cbInverted.isChecked
             )
         }
